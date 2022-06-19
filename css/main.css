@@ -1,0 +1,47 @@
+#smooth-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200px;
+}
+#box{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotate3d(20,20,20,20deg);
+}
+#box span{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+}
+.left{
+    transform: rotateY(90deg) translateZ(50px);
+    background-color: #f5a0a0;
+}
+.right{
+    transform: rotateY(-90deg) translateZ(50px);
+    background-color: #68bcfd;
+}
+.top{
+    transform: rotateX(90deg) translateZ(50px);
+    background-color: #cbfd68;
+}
+.bottom{
+    transform: rotateX(-90deg) translateZ(50px);
+    background-color: #ff7a30;
+}
+.back{
+    transform: rotateX(-90deg) translateZ(50px);
+    background-color: rgba(0, 105, 52, 0.68);
+}
+
+
+/*SVG*/
+
+.svg svg{
+    width: 500px;
+}
