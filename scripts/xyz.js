@@ -1,8 +1,14 @@
 
 
-if (window.DeviceOrientationEvent){
-    window.addEventListener('deviceorientation',(event)=>showOrient(event))
-}
+DeviceMotionEvent.requestPermission()
+    .then(response => {
+        if (response == 'granted') {
+            window.addEventListener('devicemotion', (e) => {
+                alert(e.acceleration)
+            })
+        }
+    })
+    .catch (console.error)
 
 
 
