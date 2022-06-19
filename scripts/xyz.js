@@ -1,5 +1,5 @@
 
-
+alert('test')
 if (typeof DeviceMotionEvent.requestPermission === "function"){
     DeviceMotionEvent.requestPermission()
         .then(permitionState =>{
