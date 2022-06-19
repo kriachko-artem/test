@@ -1,4 +1,11 @@
-window.addEventListener('deviceorientation',(event)=>showOrient(event))
+
+
+if (window.DeviceOrientationEvent){
+    window.addEventListener('deviceorientation',(event)=>showOrient(event))
+}
+
+
+
 console.log(window.DeviceOrientationEvent)
 function showOrient(event){
     console.log(event)
