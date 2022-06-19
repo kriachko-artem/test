@@ -1,12 +1,20 @@
 
-if (typeof DeviceMotionEvent.requestPermission === 'function'){
-    DeviceMotionEvent.requestPermission()
-        .then(permition =>{
-            alert(permition)
-        }).catch(permition =>{
-        console.log(permition)
-    })
-} else {alert('not function')}
-
+function requestDeviceOrientation () {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+                if (permissionState === 'granted') {
+                    window.addEventListener('deviceorientation', () => {
+                        alert('good')
+                    });
+                }
+            })
+            .catch(console.error);
+    } else {
+        // handle regular non iOS 13+ devices
+        console.log ("not iOS");
+    }
+}
+requestDeviceOrientation()
 
 
