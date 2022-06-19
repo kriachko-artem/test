@@ -1,12 +1,16 @@
 
 if (typeof Notification.requestPermission === 'function'){
+    document.querySelector('#x').innerHTML = 'is Function'
     Notification.requestPermission()
-        .then(permition =>{
-            alert(permition)
-        }).catch(permition =>{
-        console.log(permition)
+        .then(permission =>{
+            alert(permission)
+        }).catch(permission =>{
+        console.log(permission)
     })
-} else {alert('not function')}
+} else {
+    document.querySelector('#x').innerHTML = 'is NOT Function'
+    alert('not function')
+}
 
 
 
