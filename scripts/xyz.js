@@ -1,6 +1,5 @@
 
 if (typeof DeviceMotionEvent.requestPermission === 'function'){
-    alert('function')
     DeviceMotionEvent.requestPermission()
         .then(permition =>{
             alert(permition)
