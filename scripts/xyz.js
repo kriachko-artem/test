@@ -7,6 +7,6 @@ function showOrient(event){
         y: document.querySelector('.orientation .y'),
         z: document.querySelector('.orientation .z'),
     };
-    orientSpan.x.innerHTML = event.alpha
+    orientSpan.x.innerHTML = `event.alpha ${event.alpha}`
 
 }
