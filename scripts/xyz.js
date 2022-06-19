@@ -15,9 +15,9 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
     }
 })
 function getOrientation(event){
-    document.querySelector('#x').innerHTML = `event.alfa ${event.alpha}`
-    document.querySelector('#y').innerHTML = `event.beta ${event.beta}`
-    document.querySelector('#z').innerHTML = `event.alfa ${event.gamma}`
+    document.querySelector('#x').innerHTML = `event.alfa ${event.rotationRate.alpha}`
+    document.querySelector('#y').innerHTML = `event.beta ${event.rotationRate.beta}`
+    document.querySelector('#z').innerHTML = `event.alfa ${event.rotationRate.gamma}`
 
 }
 
