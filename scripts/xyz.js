@@ -2,7 +2,7 @@
 document.querySelector('.getPerm').addEventListener('click',()=>{
     if (typeof DeviceMotionEvent.requestPermission === 'function'){
         document.querySelector('#x').innerHTML = 'is Function'
-        Notification.requestPermission()
+        DeviceMotionEvent.requestPermission()
             .then(permission =>{
                 alert(permission)
             }).catch(permission =>{
