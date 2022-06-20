@@ -31,8 +31,8 @@ function getOrientation(){
             duration: 0.2,
         });
         document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
-        document.querySelector('#y').innerHTML = `event.beta ${parseInt(event.beta)}`
-        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(event.gamma)}`
+        document.querySelector('#y').innerHTML = `event.beta ${parseInt(transformX)}`
+        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(transformY)}`
     })
 
 }
