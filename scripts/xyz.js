@@ -31,7 +31,7 @@ function getOrientation(){
                 transformY = initialOffset.y - event.beta;
             gsap.to('#box',{
                 transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
-                duration: 0.2,
+                duration: 1,
             });
         }
         document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
