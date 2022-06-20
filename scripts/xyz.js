@@ -4,7 +4,7 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
         document.querySelector('.message').innerHTML = 'is Function'
         DeviceOrientationEvent.requestPermission()
             .then(() =>{
-                window.addEventListener('deviceorientation',getOrientation)
+                getOrientation()
             }).catch(permission =>{
             console.log(permission)
         })
@@ -13,17 +13,27 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
         alert('not function')
     }
 })
-function getOrientation(event){
-    console.log(event)
-    let transformX = event.gamma,
-        transformY = event.beta;
-    gsap.to('#box',{
-        transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
-        duration: 0.2,
-    });
-    document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
-    document.querySelector('#y').innerHTML = `event.beta ${parseInt(event.beta)}`
-    document.querySelector('#z').innerHTML = `event.gamma ${parseInt(event.gamma)}`
+function getOrientation(){
+    const initialOffset = {
+        x: null,
+        y: null,
+    };
+    window.addEventListener('deviceorientation',(event)=>{
+        console.log(event)
+        if (initialOffset.x === null){
+            initialOffset.x = event.gamma;
+            initialOffset.y = event.beta;
+        }
+        let transformX = initialOffset.x - event.gamma,
+            transformY = initialOffset.y - event.beta;
+        gsap.to('#box',{
+            transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
+            duration: 0.2,
+        });
+        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
+        document.querySelector('#y').innerHTML = `event.beta ${parseInt(event.beta)}`
+        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(event.gamma)}`
+    })
 
 }
 
