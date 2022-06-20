@@ -9,7 +9,6 @@
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
-    transform: rotate3d(20,20,20,20deg);
 }
 #box span{
     position: absolute;
