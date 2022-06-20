@@ -21,13 +21,13 @@ function getOrientation(){
     };
     window.addEventListener('deviceorientation',(event)=>{
         if (initialOffset.x === null){
-            event.absolute = true
+
             console.log(event)
             console.log(event.absolute)
 
             initialOffset.x = event.gamma;
             initialOffset.y = event.beta;
-        }
+        }event.absolute = true
         let transformX = initialOffset.x - event.gamma,
             transformY = initialOffset.y - event.beta;
         gsap.to('#box',{
