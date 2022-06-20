@@ -19,7 +19,6 @@ function getOrientation(){
         y: null,
     };
     window.addEventListener('deviceorientation',(event)=>{
-        console.log(event)
         if (initialOffset.x === null){
             console.log(event)
             initialOffset.x = event.gamma;
