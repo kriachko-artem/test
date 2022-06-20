@@ -3,8 +3,7 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
     if (typeof DeviceOrientationEvent.requestPermission === 'function'){
         document.querySelector('.message').innerHTML = 'is Function'
         DeviceOrientationEvent.requestPermission()
-            .then(permission =>{
-                alert(permission)
+            .then(() =>{
                 window.addEventListener('deviceorientation',getOrientation)
             }).catch(permission =>{
             console.log(permission)
@@ -15,6 +14,7 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
     }
 })
 function getOrientation(event){
+    console.log(event)
     let transformX = event.gamma,
         transformY = event.beta;
     gsap.to('#box',{
