@@ -24,16 +24,16 @@ function getOrientation(){
 
             console.log(event)
 
-            initialOffset.x = event.gamma;
-            initialOffset.y = event.beta;
+            initialOffset.x = event.rotationRate.gamma;
+            initialOffset.y = event.rotationRate.beta;
         }
-        let transformX = initialOffset.x - event.gamma,
-            transformY = initialOffset.y - event.beta;
+        let transformX = initialOffset.x - event.rotationRate.gamma,
+            transformY = initialOffset.y - event.rotationRate.beta;
         gsap.to('#box',{
             transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
             duration: 0.2,
         });
-        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
+        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.rotationRate.alpha)}`
         document.querySelector('#y').innerHTML = `event.beta ${parseInt(transformX)}`
         document.querySelector('#z').innerHTML = `event.gamma ${parseInt(transformY)}`
     })
