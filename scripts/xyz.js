@@ -23,12 +23,11 @@ function getOrientation(){
         if (initialOffset.x === null){
 
             console.log(event)
-
-            initialOffset.x = event.rotationRate.gamma;
-            initialOffset.y = event.rotationRate.beta;
+            initialOffset.x = 0;
+            initialOffset.y = 0;
         }
-        let transformX = initialOffset.x - event.rotationRate.gamma,
-            transformY = initialOffset.y - event.rotationRate.beta;
+        let transformX = initialOffset.x + event.rotationRate.gamma,
+            transformY = initialOffset.y + event.rotationRate.beta;
         gsap.to('#box',{
             transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
             duration: 0.2,
