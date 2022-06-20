@@ -19,7 +19,7 @@ function getOrientation(){
         x: null,
         y: null,
     };
-    window.addEventListener('deviceorientation',(event)=>{
+    window.addEventListener('deviceorientationabsolute',(event)=>{
         if (initialOffset.x === null){
 
             console.log(event)
