@@ -9,6 +9,7 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
             console.log(permission)
         })
     } else {
+        getOrientation()
         document.querySelector('.message').innerHTML = 'is NOT Function'
         alert('not function')
     }
@@ -20,7 +21,10 @@ function getOrientation(){
     };
     window.addEventListener('deviceorientation',(event)=>{
         if (initialOffset.x === null){
+            event.absolute = true
             console.log(event)
+            console.log(event.absolute)
+
             initialOffset.x = event.gamma;
             initialOffset.y = event.beta;
         }
