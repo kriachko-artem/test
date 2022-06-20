@@ -25,8 +25,7 @@ function getOrientation(){
             initialOffset.x = event.gamma;
             initialOffset.y = event.beta;
         }
-        if ((event.beta > 0 && event.beta < 80)&&
-            (event.gamma > -20 && event.gamma < 20)){
+        if ((event.beta > 0 && event.beta < 80)){
             let transformX = initialOffset.x - event.gamma,
                 transformY = initialOffset.y - event.beta;
             gsap.to('#box',{
