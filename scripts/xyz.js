@@ -1,8 +1,8 @@
 
 document.querySelector('.getPerm').addEventListener('click',()=>{
-    if (typeof DeviceOrientationEvent.requestPermission === 'function'){
+    if (typeof DeviceMotionEvent.requestPermission === 'function'){
         document.querySelector('.message').innerHTML = 'is Function'
-        DeviceOrientationEvent.requestPermission()
+        DeviceMotionEvent.requestPermission()
             .then(() =>{
                 getOrientation()
             }).catch(permission =>{
@@ -19,7 +19,7 @@ function getOrientation(){
         x: null,
         y: null,
     };
-    window.addEventListener('deviceorientationabsolute',(event)=>{
+    window.addEventListener('devicemotion',(event)=>{
         if (initialOffset.x === null){
 
             console.log(event)
