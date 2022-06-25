@@ -30,10 +30,14 @@ function getOrientation(){
             //     transformY = initialOffset.y - event.beta;
         initialOffset.x += Math.round(alpha/10);
         initialOffset.y += Math.round(beta/10)
+        if ((initialOffset.x > -180 && initialOffset.x < 180)&&
+            (initialOffset.y > -90 && initialOffset.y < 90)){
             gsap.to('#box',{
                 transform: `rotateY(${initialOffset.y}deg) rotateX(${initialOffset.x}deg)`,
                 duration: 1,
             });
+        }
+
         // }
         document.querySelector('#x').innerHTML = `initialOffset.x ${initialOffset.x}`
         document.querySelector('#y').innerHTML = `initialOffset.y ${initialOffset.y}`
