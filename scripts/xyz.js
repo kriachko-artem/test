@@ -28,8 +28,8 @@ function getOrientation(){
         // if ((event.beta > 0 && event.beta < 80)){
             // let transformX = initialOffset.x - event.gamma,
             //     transformY = initialOffset.y - event.beta;
-        initialOffset.x += Math.round(alpha);
-        initialOffset.y += Math.round(beta)
+        initialOffset.x += Math.round(alpha/10);
+        initialOffset.y += Math.round(beta/10)
             gsap.to('#box',{
                 transform: `rotateY(${initialOffset.y}deg) rotateX(${initialOffset.x}deg)`,
                 duration: 1,
