@@ -1,8 +1,8 @@
 
 document.querySelector('.getPerm').addEventListener('click',()=>{
-    if (typeof DeviceOrientationEvent.requestPermission === 'function'){
+    if (typeof DeviceMotionEvent.requestPermission === 'function'){
         document.querySelector('.message').innerHTML = 'is Function'
-        DeviceOrientationEvent.requestPermission()
+        DeviceMotionEvent.requestPermission()
             .then(() =>{
                 getOrientation()
             }).catch(permission =>{
@@ -16,26 +16,28 @@ document.querySelector('.getPerm').addEventListener('click',()=>{
 })
 function getOrientation(){
     const initialOffset = {
-        x: null,
-        y: null,
+        x: 0,
+        y: 0,
     };
-    window.addEventListener('deviceorientation',(event)=>{
-        if (initialOffset.x === null){
-            console.log(event)
-            initialOffset.x = event.gamma;
-            initialOffset.y = event.beta;
-        }
-        if ((event.beta > 0 && event.beta < 80)){
-            let transformX = initialOffset.x - event.gamma,
-                transformY = initialOffset.y - event.beta;
+    window.addEventListener('devicemotion',({rotationRate: {alpha, beta, gamma}})=>{
+        // if (initialOffset.x === null){
+        //     console.log(event)
+        //     initialOffset.x = event.gamma;
+        //     initialOffset.y = event.beta;
+        // }
+        // if ((event.beta > 0 && event.beta < 80)){
+            // let transformX = initialOffset.x - event.gamma,
+            //     transformY = initialOffset.y - event.beta;
+        initialOffset.x += gamma;
+        initialOffset.y += beta
             gsap.to('#box',{
-                transform: `rotateY(${transformX}deg) rotateX(${transformY}deg)`,
+                transform: `rotateY(${initialOffset.x}deg) rotateX(${initialOffset.y}deg)`,
                 duration: 1,
             });
-        }
-        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(event.alpha)}`
-        document.querySelector('#y').innerHTML = `event.beta ${parseInt(event.beta)}`
-        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(event.gamma)}`
+        // }
+        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(alpha)}`
+        document.querySelector('#y').innerHTML = `event.beta ${parseInt(beta)}`
+        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(gamma)}`
     })
 
 }

@@ -34,7 +34,7 @@
     background-color: #ff7a30;
 }
 .back{
-    transform: rotateX(-90deg) translateZ(50px);
+    transform:translateZ(-50px);
     background-color: rgba(0, 105, 52, 0.68);
 }
 
