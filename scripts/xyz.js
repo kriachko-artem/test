@@ -33,7 +33,7 @@ function getOrientation(){
         if ((initialOffset.x > -180 && initialOffset.x < 180)&&
             (initialOffset.y > -90 && initialOffset.y < 90)){
             gsap.to('#box',{
-                transform: `rotateY(${initialOffset.y}deg) rotateX(${initialOffset.x}deg)`,
+                transform: `rotateY(${initialOffset.y/5}deg) rotateX(${initialOffset.x/5}deg)`,
                 duration: 1,
             });
         }
