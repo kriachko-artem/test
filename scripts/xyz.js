@@ -35,9 +35,9 @@ function getOrientation(){
                 duration: 1,
             });
         // }
-        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(alpha)}`
-        document.querySelector('#y').innerHTML = `event.beta ${parseInt(beta)}`
-        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(gamma)}`
+        document.querySelector('#x').innerHTML = `event.alfa ${parseInt(alpha/10)}`
+        document.querySelector('#y').innerHTML = `event.beta ${parseInt(beta/10)}`
+        document.querySelector('#z').innerHTML = `event.gamma ${parseInt(gamma/10)}`
     })
 
 }
